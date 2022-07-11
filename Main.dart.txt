@@ -1,0 +1,90 @@
+import 'package:flutter/material.dart';
+
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Menu Login',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const Login(),
+    );
+  }
+}
+
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("MENU LOGIN"),
+      ),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(top: 50.0),
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0),
+              child: TextField(
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                  hintText: 'Masukkan Email',
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
+              child: TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                  hintText: 'Masukkan Kata Sandi',
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50.0,
+            ),
+            Container(
+              height: 50,
+              width: 250,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20.0)),
+              // ignore: deprecated_member_use
+              child: FlatButton(
+                  onPressed: () {},
+                  child: const Text('Login',
+                      style: TextStyle(color: Colors.white, fontSize: 15.0))),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            TextButton(
+                onPressed: () {}, child: const Text('Pengguna baru? Buat akun'))
+          ],
+        ),
+      ),
+    );
+  }
+}
